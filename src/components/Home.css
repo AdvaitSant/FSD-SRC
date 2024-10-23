@@ -1,0 +1,57 @@
+/* components/Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+
+.home {
+    background-color: #121212; /* Dark background */
+    color: #00ff00; /* Neon green text */
+    min-height: 100vh; /* Full height */
+    display: flex; /* Centering */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items */
+    justify-content: center; /* Center items */
+    text-align: center; /* Center text */
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif; /* Stylish font */
+}
+
+h1, h2, p {
+    margin: 10px 0; /* Consistent margin */
+}
+
+h1 {
+    font-size: 3.5rem; /* Large heading */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7), 0 0 10px rgba(0, 255, 0, 0.5); /* Neon effect */
+}
+
+h2 {
+    font-size: 2.5rem; /* Medium heading */
+}
+
+p {
+    font-size: 1.5rem; /* Larger paragraph */
+}
+
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+li {
+    margin: 20px 0; /* Spacing between links to prevent overlap */
+}
+
+a {
+    color: #00ff00; /* Neon green */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.5rem; /* Font size for links */
+    padding: 10px 15px; /* Padding for links */
+    border: 2px solid #00ff00; /* Neon border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+a:hover {
+    background-color: rgba(0, 255, 0, 0.2); /* Light background on hover */
+    color: #121212; /* Dark text on hover */
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Neon glow effect */
+}

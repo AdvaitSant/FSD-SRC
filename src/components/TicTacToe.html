@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 5px;
+    }
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      background-color: #f4f4f4;
+      border: 2px solid #ccc;
+      cursor: pointer;
+    }
+
+    .cell:hover {
+      background-color: #e0e0e0;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="board" id="board">
+    <div class="cell" data-index="0"></div>
+    <div class="cell" data-index="1"></div>
+    <div class="cell" data-index="2"></div>
+    <div class="cell" data-index="3"></div>
+    <div class="cell" data-index="4"></div>
+    <div class="cell" data-index="5"></div>
+    <div class="cell" data-index="6"></div>
+    <div class="cell" data-index="7"></div>
+    <div class="cell" data-index="8"></div>
+  </div>
+
+  <script>
+    let board = ['', '', '', '', '', '', '', '', ''];
+    let currentPlayer = 'X';
+
+    // Function to send game data to Node.js server
+    function sendGameData(gameData) {
+      fetch('http://localhost:3001/send-game-data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(gameData),
+      })
+      .then(response => response.text())
+      .then(data => console.log('Success:', data))
+      .catch(error => console.error('Error:', error));
+    }
+
+    // Function to check for a winner
+    function checkWinner() {
+      const winningCombos = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+      ];
+
+      for (let combo of winningCombos) {
+        const [a, b, c] = combo;
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+          alert(`Player ${board[a]} wins!`);
+          resetBoard();
+          return true;
+        }
+      }
+
+      if (!board.includes('')) {
+        alert('It\'s a tie!');
+        resetBoard();
+        return true;
+      }
+
+      return false;
+    }
+
+    // Function to reset the board
+    function resetBoard() {
+      board = ['', '', '', '', '', '', '', '', ''];
+      document.querySelectorAll('.cell').forEach(cell => cell.textContent = '');
+    }
+
+    // Add event listener to each cell
+    document.querySelectorAll('.cell').forEach(cell =>{
+      cell.addEventListener('click', function() {
+        const index = this.getAttribute('data-index');
+    })});
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.about {
+  padding: 1rem; /* Reduced padding to make content more visible */
+}
+
+.about h2 {
+  margin-top: 1rem;    /* Reduced margin for better visibility */
+  margin-bottom: 0.5rem; /* Reduced bottom margin */
+}
+
+.about p {
+  margin-top: 0.5rem;  /* Add some spacing between the <h2> and <p> */
+  margin-bottom: 1rem; /* Ensure there's spacing at the bottom */
+}
