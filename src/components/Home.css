@@ -15,7 +15,7 @@
 }
 
 h1, h2, p {
-    margin: 10px 0; /* Consistent margin */
+    margin: 10px 200px; /* Consistent margin */
 }
 
 h1 {
@@ -37,7 +37,7 @@ ul {
 }
 
 li {
-    margin: 20px 0; /* Spacing between links to prevent overlap */
+    margin: 20px 5px; /* Spacing between links to prevent overlap */
 }
 
 a {
